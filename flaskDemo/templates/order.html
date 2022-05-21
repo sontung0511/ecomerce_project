@@ -1,0 +1,43 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+        <div class="row">
+                <div class="col-sm-4 panel-pad-10">
+                    <div class="panel panel-default">
+                      <div class="panel-body">
+                          <a class="btn" href="{{ url_for('orders', type_orders='expired')}}">Exprired Orders</a>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 panel-pad-10"> 
+                    <div class="panel panel-default">
+                      <div class="panel-body">
+                            <a class="btn" href="{{ url_for('orders', type_orders='pending')}}" style="background-color:aqua">Pending Orders</a>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 panel-pad-10">
+                    <div class="panel panel-default">
+                      <div class="panel-body">
+                            <a class="btn" href="{{ url_for('orders', type_orders='checkout')}}" style="background-color:chocolate">Checkout Orders</a>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        {% for order in orders %}
+        <div class="row"></div>
+        <h5>Order ID: {{order.orderID}}</h5>
+        <label>Username: {{order.username}}</label>
+        <label>Last date updated: {{order.date_updated}}</label>
+        <label>{{order.productName}} - {{order.quantity}} - {{order.price}}</label>
+        {% if type_orders == 'checkout'%}
+        <a class="btn btn-danger" href="{{ url_for('order_delete', orderID=order.orderID)}}">Delete</a>
+        {% else %}
+        <a class="btn btn-danger" href="{{ url_for('order_cancel', orderID=order.orderID)}}">Cancel</a>
+        {% endif %}
+        
+        </div>
+        {% endfor %}
+</div>
+{% endblock content %}

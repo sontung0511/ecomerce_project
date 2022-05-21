@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+<img class="article-img" src="../static/profile_pics/Laptop2.jpg", width="200" height="100">
+<img class="article-img" src="../static/profile_pics/Sonos.jpg", width="200" height="100">
+<img class="article-img" src="../static/profile_pics/samsung.jpeg", width="200" height="100">
+<img class="article-img" src="../static/profile_pics/Huawei.jpg", width="200" height="100">
+    {% for result in results2 %}
+        <article class="media content-section">
+          
+          <div class="media-body">
+            <div class="article-metadata">
+              
+              <a class="mr-2" href">{{ result.categoryID }}</a>         
+            </div>
+            <h2><a class="article-title">
+            {{ result.categoryName }}</a></h2>
+
+            <button type="button" class="btn btn-danger btn-sm m-1" data-toggle="modal" data-target="#deleteModal">Update</button>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('delete_category', category_id=result.category_id) }}">Delete</a>
+          
+          </div>
+
+        </article>
+    {% endfor %}
+{% endblock content %}

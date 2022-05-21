@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Choose your shipping address</h1>
+<a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('userinfo_home') }}">Add new shipping address</a>
+
+<div class="container">
+{% for info in infos %}
+<div class="row">
+<div class="col-50">
+    <h2>{{ info['nickname'] }}</h2>
+<ul class="list-group list-group-flush"></ul>
+    <li class="list-group-item">Full name: {{ info['fullName'] }}</li>
+    <li class="list-group-item">Phone:  {{ info['phone'] }}</li>
+    <li class="list-group-item">Address: {{ info['address'] }}, {{ info['city'] }}, {{ info['state'] }}, {{ info['zipcode'] }}</li>
+</ul>
+</div>
+<div class="col-40">
+    <a class="btn" style="color:black" href="{{ url_for('payment', shipping_id = info['infoID'])}}"> Choose</a>
+</div>
+</div>
+{% endfor %}
+</div>
+{% endblock content %}

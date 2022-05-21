@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+  <article class="media content-section">
+    <div class="media-body">
+        <div class="article-metadata">
+          <a class="mr-2" href="#">{{ category.CategoryID }}</a>
+        </div>
+        <h2 class="article-title" href="{{ url_for('category', category_id=category.category_id)}}">{{ category.CategoryID }}</h2>
+        <p class="article-content">{{ category.CategoryName }}</p>
+    </div>
+  </article>
+{% endblock content %}

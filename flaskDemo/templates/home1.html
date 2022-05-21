@@ -1,0 +1,46 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <!-- <div class="well well-sm">
+        <strong>Category Title</strong>
+        <div class="btn-group">
+            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+                class="glyphicon glyphicon-th"></span>Grid</a>
+        </div>
+    </div> -->
+     <div class="navbar-nav">
+              {% from "_formhelpers.html" import render_field %}
+            <form method=post>
+             {{ render_field(form1.select) }}
+                 {{ render_field(form1.search) }}
+              <p><input type=submit value=Search>
+                    </form>
+                    </div>
+    <div id="products" class="row grid-group">
+        {% for product in products %}
+            <div class="item  col-xs-4 col-lg-4" style="margin-left:5em">
+                <div class="thumbnail">
+                    <img class="group list-group-image" src="{{ product[4] }}" alt="" width="300" height="300"/>
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading">
+                            {{ product[2] }}</h4>
+                        <p class="group inner list-group-item-text">
+                            {{ product[3]}}</p>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <p class="lead">
+                                    {{ product[5] }}</p>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <a class="btn btn-success" href="{{ url_for('add_cart', productID=product[0]) }}">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

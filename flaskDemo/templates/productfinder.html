@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+
+        <article class="media content-section">
+         
+          <div class="media-body">
+            {% for products in product %}
+          {% if userinfos.userID == current_user.userID %}
+          <div class="article-metadata">
+          <div class="btn-group">
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('update_userinfo', infoID=userinfos.infoID) }}">Update</a>
+            <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('delete_userinfo', infoID=userinfos.infoID) }}">Delete</a>
+          </div>
+            <h2><a class="article-title" >{{ userinfos.nickname }}</a></h2>
+            <p class="article-content">{{ userinfos.fullname }}</p>
+            <p class="article-content">{{ userinfos.address }}</p>
+            <p class="article-content">{{ userinfos.zipcode }}</p>
+            <p class="article-content">{{ userinfos.city }}</p>
+            <p class="article-content">{{ userinfos.state}}</p>
+            <p class="article-content">{{ userinfos.phone}}</p>
+             
+            </div>
+            {% endif %}
+              {% endfor %}
+          </div>
+         
+        </article>
+        
+   
+{% endblock content %}

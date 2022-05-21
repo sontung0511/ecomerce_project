@@ -1,0 +1,18 @@
+{% extends "update_userinfo.html" %}
+
+			{% block nickname %}
+            <div class="form-group">
+                {{ form.nickname.label(class="form-control-label") }}
+                {% if form.nickname.errors %}
+                    {{ form.nickname(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.nickname.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.nickname(class="form-control form-control-lg") }}
+                {% endif %}
+            </div>
+			{% endblock nickname %}
+			

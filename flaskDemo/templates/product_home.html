@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for result in results %}
+        <article class="media content-section">
+          <img class="article-img" src="{{ result[4] }}", width="300" height="240">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ result[5] }}</a>
+              <small class="text-muted">{{ result[6] }}</small>
+              <small class="text-muted">{{ result[7] }}</small>
+              
+          
+              <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('update_product', product_id=result[0]) }}">Update</a>
+              <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{{ url_for('delete_prodcut', product_id=result[0]) }}">Delete</a>
+              
+            </div>
+            <h2><a class="article-title">
+            {{ result[1] }}</a></h2>
+            <p class="article-content">{{ result[2] }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

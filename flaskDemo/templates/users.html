@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+<a class="btn btn-primary btn-sm m-1" href="{{ url_for('add_user') }}">Create new User</a>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">username</th>
+            <th scope="col">last login</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in users%}
+            <tr>
+                <td>{{ user['userID'] }}</td>
+                <td>
+                    <a href="{{ url_for('users_detail', userID=user['userID']) }}">{{ user['username'] }}</a>
+                </td>
+                <td>{{ user['timeStamp'] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock content %}

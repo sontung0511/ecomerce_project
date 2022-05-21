@@ -1,0 +1,23 @@
+#luu
+#mysql_host: '127.0.0.1'
+#mysql_user: 'root'
+## Enter your password in field below
+#mysql_port: 8889
+#mysql_password: 'root'
+#mysql_db: 'ecommerce1'
+
+# #sameep
+# mysql_host: '127.0.0.1'
+# mysql_user: 'liquidten'
+# # Enter your password in field below
+# mysql_port: 3307
+# mysql_password: 'Magnum88'
+# mysql_db: 'ecommerce1'
+
+ #albert
+ mysql_host: '127.0.0.1'
+ mysql_user: 'root'
+ # Enter your password in field below
+ mysql_port: 3306
+ mysql_password: ''
+ mysql_db: 'ecommerce1'
